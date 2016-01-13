@@ -1,0 +1,105 @@
+<head>
+    <title>Accelerate CS Logins</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
+</head>
+
+<body>
+  {{> menubar}}
+  <br><br><br>
+  {{> formBoxes}}
+  <br><br><br>
+  {{> containsTheDataTable }}
+</body>
+
+
+<template name="containsTheDataTable">
+  <div id="table">
+    {{> ReactiveDatatable tableData=reactiveDataFunction options=optionsObject }}
+  </div>
+</template>
+
+
+<template name="formBoxes">
+  <div class="row">
+  <div class="large-6 columns">
+    <div class="formBox">
+    {{> retrieveCombo}}
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="formBox">
+    {{> saveNew}}
+    </div>
+  </div>
+  </div>
+</template>
+
+<template name="menubar">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">CS First Passport Logins</li>
+        <!--<li class="has-submenu">
+          <a href="#">One</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li> -->
+      </ul>
+    </div>
+    <div class="top-bar-right">
+  </div>
+</div>
+</template>
+
+<template name="Home">
+
+
+
+</template>
+
+<template name="retrieveCombo">
+    <div class="actionContain" id="retrieveContain">
+        <form action="" name="retrieveComboForm">
+            First Name:
+            <br>
+            <input type="text" name="firstName">
+            <br> Last Name:
+            <br>
+            <input type="text" name="lastName">
+            <br>
+            <select name="school">
+                {{#each school in schools}}
+                <option value="{{school.shortName}}">{{school.fullName}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <button>Retrieve!</button>
+        </form>
+    </div>
+</template>
+
+<template name="saveNew">
+    <div class="actionContain" id="newContain">
+        <form action="" name="retrieveComboForm">
+            First Name:
+            <br>
+            <input type="text" name="firstName">
+            <br> Last Name:
+            <br>
+            <input type="text" name="lastName">
+            <br>
+            <select name="school">
+                {{#each school in schools}}
+                <option value="{{school.shortName}}">{{school.fullName}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <button>Save New User</button>
+        </form>
+    </div>
+</template>
