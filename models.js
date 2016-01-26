@@ -43,20 +43,39 @@ if (Meteor.isClient) {
   // Save new
   Template.retrieveCombo.helpers({
 
-    settings: function() {
+  autoFirstName: function() {
     return {
-      position: "top",
+      position: "bottom",
       limit: 5,
       rules: [
         {
           collection: combos,
           field: "firstName",
-          template: Template.dropDownPill
+          template: Template.firstNameDropdownPill
         }
       ]
     };
-  }
+  },
+  autoLastName: function() {
+    return {
+      position: "bottom",
+      limit: 5,
+      rules: [
+        {
+          collection: combos,
+          field: "lastName",
+          template: Template.lastNameDropdownPill
+        }
+      ]
+    };
+  },
   })
+
+  Template.retrieveCombo.events({
+  "autocompleteselect input": function(event, template, doc) {
+    console.log("selected ", doc);
+  }
+});
 
   // Save new
   Template.saveNew.helpers({

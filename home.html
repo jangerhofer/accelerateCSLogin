@@ -29,16 +29,24 @@
   </div>
 </template>
 
+<template name="firstNameDropdownPill">
+{{firstName}}
+</template>
+
+<template name="lastNameDropdownPill">
+{{lastName}}
+</template>
+
 <template name="retrieveCombo">
   <h1>Retrieve Combination</h1>
     <div class="actionContain" id="retrieveContain">
         <form action="" name="retrieveComboForm">
             First Name:
             <br>
-            {{> inputAutocomplete settings=settings type="text" name="firstName" autofocus="true" autocomplete="off"}}
+            {{> inputAutocomplete settings=autoFirstName type="text" name="firstName" autofocus="true" autocomplete="off"}}
             <br> Last Name:
             <br>
-            <input type="text" name="lastName" autocomplete="off">
+            {{> inputAutocomplete settings=autoLastName type="text" name="lastName" autocomplete="off"}}
             <br>
             <select name="school">
                 {{#each school in schools}}
@@ -77,10 +85,6 @@
         </form>
         {{ /unless}}
     </div>
-</template>
-
-<template name="dropDownPill">
-{{firstName}} {{lastName}}
 </template>
 
 <template name="splash">
