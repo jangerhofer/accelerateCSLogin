@@ -9,10 +9,17 @@ if (Meteor.isClient) {
 
   // Opening animations
   Template.splash.rendered = function () {
-    $('#splash').hide(0).fadeIn(200);
-    $('#blockM').hide(0).delay(200).fadeIn(400).addClass('animated bounceInDown');
-    $('#splash').addClass('animated fadeOut');
-    $('#content').hide(0).fadeIn(2500);
+      var timeline = new TimelineMax()
+      timeline.add( TweenLite.to("#splash", 0.75, {opacity : 1}))
+      timeline.add( TweenLite.fromTo("#blockM", 1.25, {y : "-200%"}, {y:"0%", ease:Bounce.easeOut}), "+=0")
+      timeline.add( TweenLite.to("#splash", 2, {opacity : 0}))
+      timeline.add( TweenLite.to("#content", 2.5, {opacity : 1}))
+      timeline.addCallback(function() {
+        $(" #splash ").remove()
+      }, "-=0.5")
+      timeline.addCallback(function() {
+        $(" #retrieveContain, :input[name=\"firstName\"] ").focus()
+      }, "-=0.25")
   }
 
   // Retrieve Combinations

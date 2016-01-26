@@ -2,14 +2,14 @@
     <title>Accelerate CS Logins</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
-    <link rel="stylesheet" href="animate.min.css">
+    <script src="TweenMax.min.js"></script>
 </head>
 
 
 <template name="Home">
   {{> splash }}
-  <div id="homeHeader">UMich Accelerate CS Login Tool</div>
   <div id="content">
+    <div id="homeHeader">UMich Accelerate CS Login Tool</div>
   {{> formBoxes}}
 </div>
 </template>
@@ -29,14 +29,13 @@
   </div>
 </template>
 
-
 <template name="retrieveCombo">
   <h1>Retrieve Combination</h1>
     <div class="actionContain" id="retrieveContain">
         <form action="" name="retrieveComboForm">
             First Name:
             <br>
-            {{> inputAutocomplete settings=settings type="text" name="firstName" autocomplete="off"}}
+            {{> inputAutocomplete settings=settings type="text" name="firstName" autofocus="true" autocomplete="off"}}
             <br> Last Name:
             <br>
             <input type="text" name="lastName" autocomplete="off">

@@ -20,6 +20,15 @@
   -o-animation-iteration-count: $sec
   -ms-animation-iteration-count: $sec
 
+=noSelect
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+
 $maize : rgba(255, 203, 5, 1)
 $blue : rgba(0, 39, 76, 1)
 
@@ -32,7 +41,7 @@ body
 
 // HOME PAGE
 #content
-  display: none
+  opacity: 0
 
 #homeHeader
   text-align: center
@@ -40,6 +49,7 @@ body
   font-size: 80px
   text-decoration: underline
   margin: 50px
+  +noSelect
 
 .formBox
   width: 100%
@@ -67,8 +77,10 @@ body
   background-color: white
   z-index: 100
   position: absolute
-  +animation-duration(0.5s)
-  +animation-delay(2.75s)
+  left: 0px
+  top: 0px
+  opacity: 0
+  +noSelect
 
   #blockM
     position: fixed;
