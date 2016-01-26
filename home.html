@@ -1,23 +1,18 @@
 <head>
     <title>Accelerate CS Logins</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="animate.min.css">
 </head>
 
-<body>
-  {{> menubar}}
-  <br><br><br>
+
+<template name="Home">
+  {{> splash }}
+  <div id="homeHeader">UMich Accelerate CS Login Tool</div>
+  <div id="content">
   {{> formBoxes}}
-  <br><br><br>
-  {{> containsTheDataTable }}
-</body>
-
-
-<template name="containsTheDataTable">
-  <div id="table">
-    {{> ReactiveDatatable tableData=reactiveDataFunction options=optionsObject }}
-  </div>
+</div>
 </template>
-
 
 <template name="formBoxes">
   <div class="row">
@@ -34,43 +29,17 @@
   </div>
 </template>
 
-<template name="menubar">
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">CS First Passport Logins</li>
-        <!--<li class="has-submenu">
-          <a href="#">One</a>
-          <ul class="submenu menu vertical" data-submenu>
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Two</a></li>
-        <li><a href="#">Three</a></li> -->
-      </ul>
-    </div>
-    <div class="top-bar-right">
-  </div>
-</div>
-</template>
-
-<template name="Home">
-
-
-
-</template>
 
 <template name="retrieveCombo">
+  <h1>Retrieve Combination</h1>
     <div class="actionContain" id="retrieveContain">
         <form action="" name="retrieveComboForm">
             First Name:
             <br>
-            <input type="text" name="firstName">
+            {{> inputAutocomplete settings=settings type="text" name="firstName" autocomplete="off"}}
             <br> Last Name:
             <br>
-            <input type="text" name="lastName">
+            <input type="text" name="lastName" autocomplete="off">
             <br>
             <select name="school">
                 {{#each school in schools}}
@@ -84,14 +53,20 @@
 </template>
 
 <template name="saveNew">
+  <h1>Save New Combination</h1>
     <div class="actionContain" id="newContain">
+      {{ #unless existingUser this.firstName }}
         <form action="" name="retrieveComboForm">
             First Name:
             <br>
-            <input type="text" name="firstName">
+            <input type="text" name="firstName" autocomplete="off">
             <br> Last Name:
             <br>
-            <input type="text" name="lastName">
+            <input type="text" name="lastName" autocomplete="off">
+            <br> Username:
+            <input type="text" name="username" autocomplete="off">
+            <br> Password:
+            <input type="text" name="password" autocomplete="off">
             <br>
             <select name="school">
                 {{#each school in schools}}
@@ -101,5 +76,16 @@
             <br>
             <button>Save New User</button>
         </form>
+        {{ /unless}}
     </div>
+</template>
+
+<template name="dropDownPill">
+{{firstName}} {{lastName}}
+</template>
+
+<template name="splash">
+  <div id="splash">
+    <div id="blockM"><img src="images/blockM.png" id="blockMImg" /><span id="blockMText">UMich AccelerateCS</span></div>
+  </div>
 </template>

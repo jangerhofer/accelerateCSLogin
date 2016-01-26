@@ -1,0 +1,11 @@
+<template name="admin">
+{{> containsTheDataTable }}
+</template>
+
+<template name="containsTheDataTable">
+  <div id="tableContainer">
+  <div id="table">
+    {{> ReactiveDatatable tableData=reactiveDataFunction options=optionsObject }}
+  </div>
+</div>
+</template>

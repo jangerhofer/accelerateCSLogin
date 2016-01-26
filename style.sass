@@ -1,0 +1,96 @@
+@import '{zurb:foundation-sites}/scss/foundation'
+@include foundation-everything
+
+// Animate.CSS Vendor Mixins
+=animation-duration($sec)
+  -webkit-animation-duration: $sec
+  -moz-animation-duration: $sec
+  -o-animation-duration: $sec
+  -ms-animation-duration: $sec
+
+=animation-delay($sec)
+  -webkit-animation-delay: $sec
+  -moz-animation-delay: $sec
+  -o-animation-delay: $sec
+  -ms-animation-delay: $sec
+
+=animation-iterations($sec)
+  -webkit-animation-iteration-count: $sec
+  -moz-animation-iteration-count: $sec
+  -o-animation-iteration-count: $sec
+  -ms-animation-iteration-count: $sec
+
+$maize : rgba(255, 203, 5, 1)
+$blue : rgba(0, 39, 76, 1)
+
+body
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+  background-color: $blue
+  font-family: 'Oswald'
+
+// HOME PAGE
+#content
+  display: none
+
+#homeHeader
+  text-align: center
+  color: white
+  font-size: 80px
+  text-decoration: underline
+  margin: 50px
+
+.formBox
+  width: 100%
+  background-color: pink
+  text-align: center
+  display: inline-block
+  background-color: $maize
+
+#table
+  background-color: white
+  width: 80vw
+  left: 10vw
+  position: relative
+  height: 20vh
+
+.actionContain
+  width: 90%
+  left: 5%
+  position: relative
+
+// Splash page
+#splash
+  height: 100%
+  width: 100%
+  background-color: white
+  z-index: 100
+  position: absolute
+  +animation-duration(0.5s)
+  +animation-delay(2.75s)
+
+  #blockM
+    position: fixed;
+    width: 50%
+    height: 50%
+    top: 25%
+    left: 25%
+    text-align: center
+    +animation-delay(1s)
+
+    #blockMText
+      display: block
+      font-size: 70px
+      margin-top: 50px
+      color: $blue
+      text-decoration: underline
+
+// Admin. page
+#tableContainer
+  width: 90%
+  height: 90%
+  position: relative
+  left: 5%
+  top: 5%
+  background-color: white
