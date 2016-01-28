@@ -43,6 +43,7 @@ if (Meteor.isClient) {
   // Save new
   Template.retrieveCombo.helpers({
 
+//https://github.com/mizzao/meteor-autocomplete
   autoFirstName: function() {
     return {
       position: "bottom",
