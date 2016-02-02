@@ -2,6 +2,14 @@
 @include foundation-everything
 @import colors
 
+
+// Rounded corners
+=rounded($radius: 0.5em)
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+
+
 /**
  * http://applemusic.tumblr.com/
  * https://jsfiddle.net/xq56dmrh/
@@ -99,6 +107,16 @@ body
   text-align: center
   display: inline-block
   background-color: $maize
+  margin-top: 20px
+  padding: 5px
+  +rounded(20px)
+
+.submitButton
+  background-color: $blue
+  color: white
+  padding: 5px
+  font-size: 30px
+  +rounded(5px)
 
 #table
   background-color: white
@@ -142,13 +160,3 @@ body
 
 // Dropdown Pills
 .firstNameDropdownPill
-  background-color: pink
-
-// Admin. page
-#tableContainer
-  width: 90%
-  height: 90%
-  position: relative
-  left: 5%
-  top: 5%
-  background-color: white
