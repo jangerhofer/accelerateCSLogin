@@ -107,3 +107,13 @@ if (Meteor.isClient) {
     }
   })
 }
+
+if (Meteor.isServer) {
+
+  Meteor.methods({
+    "authAdmin" : function(pass) {
+      Session.set("isAuthed", true)
+      return true
+    }
+  })
+}

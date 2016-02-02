@@ -1,5 +1,14 @@
 <template name="admin">
-{{> containsTheDataTable }}
+  {{# if sessionIsAuthed}}
+  {{> containsTheDataTable }}
+  {{ else }}
+  <div id="passwordContain">
+    <form>
+      Input Password:
+      <input name="password" type="password"/>
+    </form>
+  </div>
+  {{ /if}}
 </template>
 
 <template name="containsTheDataTable">

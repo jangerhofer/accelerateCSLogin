@@ -64,8 +64,7 @@ if (Meteor.isClient) {
           data: 'password'
       }],
   }
-
-
+  
   dataTableData = function () {
       return combos.find().fetch(); // or .map()
   };
