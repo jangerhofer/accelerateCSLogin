@@ -1,7 +1,7 @@
-Meteor.publish("schools", function () {
-    return schools.find();
+Meteor.publish("Schools", function () {
+    return Schools.find();
   });
 
-Meteor.publish("combos", function () {
-    return combos.find();
+Meteor.publish("Combos", function () {
+    return Combos.find();
   });

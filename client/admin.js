@@ -6,26 +6,7 @@ if (Meteor.isClient) {
    TweenMax.to(item,0.1,{repeat:repeatCount-1, x:Math.ceil(Math.random() * (max - min + 1) + min), delay:.1});
    TweenMax.to(item,0.1,{y:0, x:0, delay:(repeatCount+1) * .1});
 }
-
-  Template.admin.helpers({
-    authenticate: function(password){
-      Meteor.call('authAdmin', password, function(err, res) {
-        return(res);
-      })
-    },
-
-    sessionIsAuthed : function(){
-      console.log("seshIsAuthed: " + Session.get("sessionIsAuthed"));
-      if (Session.get("sessionIsAuthed") == true) {
-        return true
-      }
-      else {
-        return false
-      }
-    }
-  });
-
-  Template.admin.events({
+Template.admin.events({
 
     'submit' : function(eve) {
       eve.preventDefault();
@@ -37,4 +18,13 @@ if (Meteor.isClient) {
 
     }
   })
+
+  Template.containsTheDataTable.events({
+  'click tbody > tr': function (event) {
+    var dataTable = $(event.target).closest('table').DataTable();
+    cellIndex = dataTable.cell( event.target ).index()
+    //dataTable.cell(cellIndex.row, cellIndex.column).data("Yup!")
+  }
+});
+
 }

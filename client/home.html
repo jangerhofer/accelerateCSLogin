@@ -9,7 +9,7 @@
 <template name="Home">
   {{> splash }}
   <div id="content">
-    <div id="homeHeader">UMich Accelerate CS Login Tool</div>
+    <div id="homeHeader">UMich Accelerate CS Logins</div>
   {{> formBoxes}}
 </div>
 </template>
@@ -42,18 +42,17 @@
     <div class="actionContain" id="retrieveContain">
         <form action="" name="retrieveComboForm">
             First Name:
-            <br>
             {{> inputAutocomplete settings=autoFirstName type="text" name="firstName" autofocus="true" autocomplete="off"}}
-            <br> Last Name:
-            <br>
+             Last Name:
+
             {{> inputAutocomplete settings=autoLastName type="text" name="lastName" autocomplete="off"}}
-            <br>
+
             <select name="school">
-                {{#each school in schools}}
+                {{#each school in Schools}}
                 <option value="{{school.shortName}}">{{school.fullName}}</option>
                 {{/each}}
             </select>
-            <br>
+
             <button class="submitButton">Retrieve Login!</button>
         </form>
     </div>
@@ -65,22 +64,22 @@
       {{ #unless existingUser this.firstName }}
         <form action="" name="retrieveComboForm">
             First Name:
-            <br>
+
             <input type="text" name="firstName" autocomplete="off">
-            <br> Last Name:
-            <br>
+             Last Name:
+
             <input type="text" name="lastName" autocomplete="off">
-            <br> Username:
+             Username:
             <input type="text" name="username" autocomplete="off">
-            <br> Password:
+             Password:
             <input type="text" name="password" autocomplete="off">
-            <br>
+
             <select name="school">
-                {{#each school in schools}}
+                {{#each school in Schools}}
                 <option value="{{school.shortName}}">{{school.fullName}}</option>
                 {{/each}}
             </select>
-            <br>
+
             <button class="submitButton">Save New User!</button>
         </form>
         {{ /unless}}

@@ -1,2 +1,2 @@
-Meteor.subscribe('schools')
-Meteor.subscribe('combos')
+Meteor.subscribe('Schools')
+Meteor.subscribe('Combos')

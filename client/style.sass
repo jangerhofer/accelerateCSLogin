@@ -85,7 +85,7 @@
 body
   width: 100vw
   height: 100vh
-  overflow: hidden
+  overflow-x: hidden
   background-color: $blue
   font-family: 'San Francisco'
 
@@ -98,7 +98,7 @@ body
   color: white
   font-size: 80px
   text-decoration: underline
-  margin: 50px
+  margin: 5px
   +noSelect
 
 .formBox
@@ -108,6 +108,7 @@ body
   display: inline-block
   background-color: $maize
   margin-top: 20px
+  margin-bottom: 20px
   padding: 5px
   +rounded(20px)
 
@@ -129,6 +130,20 @@ body
   width: 90%
   left: 5%
   position: relative
+
+  input
+    background-color: transparent
+    text-align: center
+    border: none
+    outline: none
+    transition:height 1s
+    -webkit-transition:height 1s
+
+  select
+    background-color: transparent
+    text-align: center
+    border: none
+    outline: none
 
 // Splash page
 #splash

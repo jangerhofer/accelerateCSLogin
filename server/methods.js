@@ -6,7 +6,7 @@ Meteor.methods({
 
   "saveNew" : function(userObj) {
     if (userObj.firstName && userObj.lastName && userObj.username && userObj.password && userObj.school) {
-      combos.insert(userObj)
+      Combos.insert(userObj)
       return true
     }
     else {

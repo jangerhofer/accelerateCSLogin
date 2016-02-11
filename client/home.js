@@ -1,5 +1,5 @@
-UI.registerHelper('schools', function () {
-  return schools.find({})
+UI.registerHelper('Schools', function () {
+  return Schools.find({})
 })
 
 // Opening animations
@@ -23,8 +23,8 @@ Template.retrieveCombo.events({
     eve.preventDefault();
     firstName = event.target.firstName.value
     lastName = event.target.lastName.value
-    school = schools.findOne({shortName: event.target.school.value})._id
-    user = combos.findOne({firstName : firstName, lastName : lastName, school : school})
+    school = Schools.findOne({shortName: event.target.school.value})._id
+    user = Combos.findOne({firstName : firstName, lastName : lastName, school : school})
     if (!user) {
       alert("Not found. :(  Try again or ask a teacher for help!")
     }
@@ -44,7 +44,7 @@ autoFirstName: function() {
     limit: 5,
     rules: [
       {
-        collection: combos,
+        collection: Combos,
         field: "firstName",
         template: Template.firstNameDropdownPill
       }
@@ -57,7 +57,7 @@ autoLastName: function() {
     limit: 5,
     rules: [
       {
-        collection: combos,
+        collection: Combos,
         field: "lastName",
         template: Template.lastNameDropdownPill
       }
@@ -84,8 +84,8 @@ Template.saveNew.events({
     eve.preventDefault();
     firstName = event.target.firstName.value
     lastName = event.target.lastName.value
-    school = schools.findOne({shortName : event.target.school.value})._id
-    user = combos.findOne({firstName : firstName, lastName : lastName, _id : school})
+    school = Schools.findOne({shortName : event.target.school.value})._id
+    user = Combos.findOne({firstName : firstName, lastName : lastName, _id : school})
     if (!user) {
       Meteor.call("saveNew", {username : event.target.username.value, password : event.target.password.value, firstName : firstName, lastName : lastName, school : school}, function(err, res){
         if (err) {
