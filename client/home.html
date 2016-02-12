@@ -1,8 +1,8 @@
 <head>
-    <title>Accelerate CS Logins</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
-    <script src="TweenMax.min.js"></script>
+  <title>Accelerate CS Logins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald">
+  <script src="TweenMax.min.js"></script>
 </head>
 
 
@@ -10,80 +10,81 @@
   {{> splash }}
   <div id="content">
     <div id="homeHeader">UMich Accelerate CS Logins</div>
-  {{> formBoxes}}
-</div>
+    {{> formBoxes}}
+    <div id="infoArea">
+      {{# if loginCombo}}
+      <span class="noSelect">Username: </span>{{ loginCombo.username }}
+      <br><span class="noSelect">Password: </span> {{ loginCombo.password }} {{ /if }}
+    </div>
+    <center>
+      <a href="http://cs-first.com" target="blank"><img id="csFirstLink" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" /></a>
+    </center>
+  </div>
 </template>
 
 <template name="formBoxes">
   <div class="row">
-  <div class="large-6 columns">
-    <div class="formBox">
-    {{> retrieveCombo}}
+    <div class="large-6 columns">
+      <div class="formBox">
+        {{> retrieveCombo}}
+      </div>
     </div>
-  </div>
-  <div class="large-6 columns">
-    <div class="formBox">
-    {{> saveNew}}
+    <div class="large-6 columns">
+      <div class="formBox">
+        {{> saveNew}}
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
 <template name="firstNameDropdownPill">
-<div class="firstNameDropdownPill">{{firstName}}</div>
+  <div class="firstNameDropdownPill">{{firstName}}</div>
 </template>
 
 <template name="lastNameDropdownPill">
-{{lastName}}
+  {{lastName}}
 </template>
 
 <template name="retrieveCombo">
   <h1>Retrieve Combination</h1>
-    <div class="actionContain" id="retrieveContain">
-        <form action="" name="retrieveComboForm">
-            First Name:
-            {{> inputAutocomplete settings=autoFirstName type="text" name="firstName" autofocus="true" autocomplete="off"}}
-             Last Name:
+  <div class="actionContain" id="retrieveContain">
+    <form action="" name="retrieveComboForm">
+      First Name: {{> inputAutocomplete settings=autoFirstName type="text" name="firstName" autofocus="true" autocomplete="off"}} Last Name: {{> inputAutocomplete settings=autoLastName type="text" name="lastName" autocomplete="off"}}
 
-            {{> inputAutocomplete settings=autoLastName type="text" name="lastName" autocomplete="off"}}
+      <select name="school">
+        {{#each school in Schools}}
+        <option value="{{school.shortName}}">{{school.fullName}}</option>
+        {{/each}}
+      </select>
 
-            <select name="school">
-                {{#each school in Schools}}
-                <option value="{{school.shortName}}">{{school.fullName}}</option>
-                {{/each}}
-            </select>
-
-            <button class="submitButton">Retrieve Login!</button>
-        </form>
-    </div>
+      <button class="submitButton">Retrieve Login!</button>
+    </form>
+  </div>
 </template>
 
 <template name="saveNew">
   <h1>Save New Combination</h1>
-    <div class="actionContain" id="newContain">
-      {{ #unless existingUser this.firstName }}
-        <form action="" name="retrieveComboForm">
-            First Name:
+  <div class="actionContain" id="newContain">
+    {{ #unless existingUser this.firstName }}
+    <form action="" name="retrieveComboForm">
+      First Name:
 
-            <input type="text" name="firstName" autocomplete="off">
-             Last Name:
+      <input type="text" name="firstName" autocomplete="off"> Last Name:
 
-            <input type="text" name="lastName" autocomplete="off">
-             Username:
-            <input type="text" name="username" autocomplete="off">
-             Password:
-            <input type="text" name="password" autocomplete="off">
+      <input type="text" name="lastName" autocomplete="off"> Username:
+      <input type="text" name="username" autocomplete="off"> Password:
+      <input type="text" name="password" autocomplete="off">
 
-            <select name="school">
-                {{#each school in Schools}}
-                <option value="{{school.shortName}}">{{school.fullName}}</option>
-                {{/each}}
-            </select>
+      <select name="school">
+        {{#each school in Schools}}
+        <option value="{{school.shortName}}">{{school.fullName}}</option>
+        {{/each}}
+      </select>
 
-            <button class="submitButton">Save New User!</button>
-        </form>
-        {{ /unless}}
-    </div>
+      <button class="submitButton">Save New User!</button>
+    </form>
+    {{ /unless}}
+  </div>
 </template>
 
 <template name="splash">

@@ -29,7 +29,8 @@ Template.retrieveCombo.events({
       alert("Not found. :(  Try again or ask a teacher for help!")
     }
     else {
-      alert("Username: " + user.username + "  Password: " + user.password)
+      Session.set("username", user.username)
+      Session.set("password", user.password)
     }
   }
 })
@@ -103,6 +104,14 @@ Template.saveNew.events({
     }
     else {
     alert("You've already saved your login!  If you need to change your login, get an admin!")
+    }
+  }
+})
+
+Template.Home.helpers ({
+  loginCombo : function() {
+    if (Session.get("username") && Session.get("password")) {
+      return {username: Session.get("username"), password : Session.get("password")}
     }
   }
 })
