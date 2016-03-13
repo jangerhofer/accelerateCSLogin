@@ -108,7 +108,7 @@ Template.saveNew.events({
   }
 })
 
-Template.Home.helpers ({
+Template.infoArea.helpers ({
   loginCombo : function() {
     if (Session.get("username") && Session.get("password")) {
       return {username: Session.get("username"), password : Session.get("password")}

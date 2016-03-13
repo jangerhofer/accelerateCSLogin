@@ -6,19 +6,12 @@
 </head>
 
 
-<template name="Home">
+<template name="homePage">
   {{> splash }}
   <div id="content">
     <div id="homeHeader">UMich Accelerate CS Logins</div>
     {{> formBoxes}}
-    <div id="infoArea">
-      {{# if loginCombo}}
-      <span class="noSelect">Username: </span>{{ loginCombo.username }}
-      <br><span class="noSelect">Password: </span> {{ loginCombo.password }} {{ /if }}
-    </div>
-    <center>
-      <a href="http://cs-first.com" target="blank"><img id="csFirstLink" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" /></a>
-    </center>
+    {{> infoArea }}
   </div>
 </template>
 
@@ -91,4 +84,15 @@
   <div id="splash">
     <div id="blockM"><img src="images/blockM.png" id="blockMImg" /><span id="blockMText">UMich AccelerateCS</span></div>
   </div>
+</template>
+
+<template name="infoArea">
+  <div id="infoArea">
+    {{# if loginCombo}}
+    <span class="noSelect">Username: </span>{{ loginCombo.username }}
+    <br><span class="noSelect">Password: </span> {{ loginCombo.password }} {{ /if }}
+  </div>
+  <center>
+    <a href="http://cs-first.com" target="blank"><img id="csFirstLink" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" /></a>
+  </center>
 </template>
