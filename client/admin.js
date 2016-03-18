@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     TweenMax.to(item, 0.1, {
       repeat: repeatCount - 1,
       x: Math.ceil(Math.random() * (max - min + 1) + min),
-      delay: .1
+      delay: 0.1
     });
     TweenMax.to(item, 0.1, {
       y: 0,
